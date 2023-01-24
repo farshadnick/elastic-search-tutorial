@@ -1,3 +1,4 @@
+*** bank1 is name of out indice that want to backup***
 Create and configure the snapshot directory.
 
 Using the Secure Shell (SSH), log in to the node-1 node as cloud_user via the public IP address.
@@ -20,8 +21,8 @@ pkill -F /home/elastic/elasticsearch/pid
 /home/elastic/elasticsearch/bin/elasticsearch -d -p pid
 ```
 Create the "test_repo" repository.
-```
 Use the Kibana console tool to execute the following:
+```
 PUT _snapshot/test_repo
 {
   "type": "fs",
@@ -43,6 +44,7 @@ PUT _snapshot/test_repo/bank_1?wait_for_completion=true
 Restore the "bank" index as "bank_restored".
 
 Use the Kibana console tool to execute the following:
+restore indice whith diffrent name
 ```
 POST _snapshot/test_repo/bank_1/_restore
 {
